@@ -5,7 +5,7 @@ const classroomSchema = new mongoose.Schema({
   capacity: { type: Number, required: true },
   resources: { type: String },
   school: { type: mongoose.Schema.Types.ObjectId, ref: 'School', required: true },
-  createdAt: { type: Date, default: Date.now },
+  students: [{ type: mongoose.Schema.Types.ObjectId, ref: 'User' }],
 });
 
 module.exports = mongoose.model('Classroom', classroomSchema);
