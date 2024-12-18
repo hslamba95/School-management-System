@@ -179,4 +179,4 @@ The School Management API is a RESTful service built using Node.js and Express.j
     curl -X DELETE http://localhost:3000/api/students/{studentId} -H "Authorization: Bearer your_jwt_token"
     ```
 
-## Project Structure
+
