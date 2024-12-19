@@ -1,7 +1,7 @@
 import chai from 'chai';
 import chaiHttp from 'chai-http';
-import server from '../app.js'; // Ensure the path is correct and includes the .js extension
-import School from '../managers/entities/school/School.model.js'; // Ensure the path is correct and includes the .js extension
+import server from '../app.js'; 
+import School from '../managers/entities/school/School.model.js'; 
 
 chai.use(chaiHttp);
 const should = chai.should();
@@ -15,7 +15,7 @@ describe('Schools', () => {
     it('it should GET all the schools', (done) => {
       chai.request(server)
         .get('/api/schools')
-        .set('Authorization', 'Bearer your_jwt_token') // Replace with a valid token
+        .set('Authorization', 'Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY3NjMwODc5NWM3MDdmNWI1MzAwOTJmZCIsInJvbGUiOiJzdXBlcmFkbWluIiwiaWF0IjoxNzM0NTg1Njg4LCJleHAiOjE3MzQ1ODkyODh9.C0zjfjFHBGJOJXecQcMCGkM1RGnFTgNFsyaSX6tio_8') 
         .end((err, res) => {
           res.should.have.status(200);
           res.body.should.be.a('object');
@@ -36,7 +36,7 @@ describe('Schools', () => {
       };
       chai.request(server)
         .post('/api/schools')
-        .set('Authorization', 'Bearer your_jwt_token') // Replace with a valid token
+        .set('Authorization', 'Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY3NjMwODc5NWM3MDdmNWI1MzAwOTJmZCIsInJvbGUiOiJzdXBlcmFkbWluIiwiaWF0IjoxNzM0NTg1Njg4LCJleHAiOjE3MzQ1ODkyODh9.C0zjfjFHBGJOJXecQcMCGkM1RGnFTgNFsyaSX6tio_8') 
         .send(school)
         .end((err, res) => {
           res.should.have.status(201);
@@ -58,7 +58,7 @@ describe('Schools', () => {
       school.save().then((school) => {
         chai.request(server)
           .put('/api/schools/' + school.id)
-          .set('Authorization', 'Bearer your_jwt_token') // Replace with a valid token
+          .set('Authorization', 'Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY3NjMwODc5NWM3MDdmNWI1MzAwOTJmZCIsInJvbGUiOiJzdXBlcmFkbWluIiwiaWF0IjoxNzM0NTg1Njg4LCJleHAiOjE3MzQ1ODkyODh9.C0zjfjFHBGJOJXecQcMCGkM1RGnFTgNFsyaSX6tio_8') 
           .send({ name: 'Updated School' })
           .end((err, res) => {
             res.should.have.status(200);
@@ -81,7 +81,7 @@ describe('Schools', () => {
       school.save().then((school) => {
         chai.request(server)
           .delete('/api/schools/' + school.id)
-          .set('Authorization', 'Bearer your_jwt_token') // Replace with a valid token
+          .set('Authorization', 'Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY3NjMwODc5NWM3MDdmNWI1MzAwOTJmZCIsInJvbGUiOiJzdXBlcmFkbWluIiwiaWF0IjoxNzM0NTg1Njg4LCJleHAiOjE3MzQ1ODkyODh9.C0zjfjFHBGJOJXecQcMCGkM1RGnFTgNFsyaSX6tio_8')
           .end((err, res) => {
             res.should.have.status(200);
             res.body.should.be.a('object');

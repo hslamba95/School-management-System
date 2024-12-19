@@ -1,8 +1,8 @@
 import chai from 'chai';
 import chaiHttp from 'chai-http';
-import server from '../app.js'; // Ensure the path is correct and includes the .js extension
-import Classroom from '../managers/entities/classroom/Classroom.model.js'; // Ensure the path is correct and includes the .js extension
-import School from '../managers/entities/school/School.model.js'; // Ensure the path is correct and includes the .js extension
+import server from '../app.js'; 
+import Classroom from '../managers/entities/classroom/Classroom.model.js'; 
+import School from '../managers/entities/school/School.model.js'; 
 
 chai.use(chaiHttp);
 const should = chai.should();
@@ -17,7 +17,7 @@ describe('Classrooms', () => {
     it('it should GET all the classrooms', (done) => {
       chai.request(server)
         .get('/api/classrooms')
-        .set('Authorization', 'Bearer your_jwt_token') // Replace with a valid token
+        .set('Authorization', 'Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY3NjMwODc5NWM3MDdmNWI1MzAwOTJmZCIsInJvbGUiOiJzdXBlcmFkbWluIiwiaWF0IjoxNzM0NTg1Njg4LCJleHAiOjE3MzQ1ODkyODh9.C0zjfjFHBGJOJXecQcMCGkM1RGnFTgNFsyaSX6tio_8') 
         .end((err, res) => {
           res.should.have.status(200);
           res.body.should.be.a('object');
@@ -45,7 +45,7 @@ describe('Classrooms', () => {
         };
         chai.request(server)
           .post('/api/classrooms')
-          .set('Authorization', 'Bearer your_jwt_token') // Replace with a valid token
+          .set('Authorization', 'Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY3NjMwODc5NWM3MDdmNWI1MzAwOTJmZCIsInJvbGUiOiJzdXBlcmFkbWluIiwiaWF0IjoxNzM0NTg1Njg4LCJleHAiOjE3MzQ1ODkyODh9.C0zjfjFHBGJOJXecQcMCGkM1RGnFTgNFsyaSX6tio_8') 
           .send(classroom)
           .end((err, res) => {
             res.should.have.status(201);
@@ -75,7 +75,7 @@ describe('Classrooms', () => {
         classroom.save().then((classroom) => {
           chai.request(server)
             .put('/api/classrooms/' + classroom.id)
-            .set('Authorization', 'Bearer your_jwt_token') // Replace with a valid token
+            .set('Authorization', 'Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY3NjMwODc5NWM3MDdmNWI1MzAwOTJmZCIsInJvbGUiOiJzdXBlcmFkbWluIiwiaWF0IjoxNzM0NTg1Njg4LCJleHAiOjE3MzQ1ODkyODh9.C0zjfjFHBGJOJXecQcMCGkM1RGnFTgNFsyaSX6tio_8') 
             .send({ name: 'Updated Classroom' })
             .end((err, res) => {
               res.should.have.status(200);
@@ -106,7 +106,7 @@ describe('Classrooms', () => {
         classroom.save().then((classroom) => {
           chai.request(server)
             .delete('/api/classrooms/' + classroom.id)
-            .set('Authorization', 'Bearer your_jwt_token') // Replace with a valid token
+            .set('Authorization', 'Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY3NjMwODc5NWM3MDdmNWI1MzAwOTJmZCIsInJvbGUiOiJzdXBlcmFkbWluIiwiaWF0IjoxNzM0NTg1Njg4LCJleHAiOjE3MzQ1ODkyODh9.C0zjfjFHBGJOJXecQcMCGkM1RGnFTgNFsyaSX6tio_8') 
             .end((err, res) => {
               res.should.have.status(200);
               res.body.should.be.a('object');
